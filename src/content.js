@@ -90,3 +90,7 @@ export function loadCards(arrayCars){
         }
     }
 }
+
+export function nextIndexOf(array) {
+    return array.length +1;
+}
