@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- <script src="https://unpkg.com/flowbite@1.4.7/dist/datepicker.js"></script> -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../public/style.css">
     <title>RentIt</title>
 </head>
 
@@ -172,6 +172,14 @@
                                         placeholder="Ingrese la cantidad de dias" />
                                 </div>
 
+                                <div class="flex flex-col my-3">
+                                    <label for="voucher"
+                                        class="text-gray-800 text-sm font-bold leading-tight tracking-normal mb-2">Tiene un cupón de descuento?</label>
+                                    <input id="voucherInput" name="voucherInput"
+                                        class="text-gray-600 bg-white border border-gray-300 sm:text-sm rounded-full focus:ring-gray-500 focus:border-gray-500 block px-4 py-2.5"
+                                        placeholder="Ingreselo aqui" />
+                                </div>
+
                                     <!-- Desde / Hasta 
                                 <label for="lugarEntrega" class="text-gray-800 text-sm font-bold leading-tight tracking-normal mb-2">Desde / Hasta</label>
 
@@ -298,7 +306,7 @@
             </div>
         </div>
 
-        <script src="main.js"></script>
+        <script src="index.js" type="module"></script>
 </body>
 
 </html>
