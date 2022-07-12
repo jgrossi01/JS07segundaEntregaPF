@@ -1,9 +1,10 @@
-import{nextIndexOf} from "./content.js";
+import{ nextIndexOf } from "./main.js";
 
 class Car {
-    constructor (id, carModel, dayprice, passengers, fuel, transmission, abs){
+    constructor (id, carModel, img, dayprice, passengers, fuel, transmission, abs){
         this.id = parseInt(id);
         this.name = carModel;
+        this.img = img
         this.dayprice = parseInt(dayprice);
         this.passengers = parseInt(passengers);
         this.fuel = fuel;
@@ -25,8 +26,9 @@ class Reservation {
 
 const arrayReservations = [];
 const arrayCars = [];
-arrayCars.push(new Car (nextIndexOf(arrayCars),"Etios", 2000,4,"Nafta","Manual",false));
-arrayCars.push(new Car (nextIndexOf(arrayCars),"Corolla", 3000,5,"Nafta","Automatico",true));
-arrayCars.push(new Car (nextIndexOf(arrayCars),"Hilux", 4000,5,"Diesel","Manual",true));
+arrayCars.push(new Car (nextIndexOf(arrayCars),"Etios", "etios.png", 2000,4,"Nafta","Manual",false));
+arrayCars.push(new Car (nextIndexOf(arrayCars),"Corolla", "corolla.png", 3000,5,"Nafta","Automatico",true));
+arrayCars.push(new Car (nextIndexOf(arrayCars),"Hilux", "hilux.png", 4000,5,"Diesel","Manual",true));
+console.log(arrayCars);
 
-export{Car,Reservation,arrayCars,arrayReservations};
+export{ Car,Reservation,arrayCars,arrayReservations };

@@ -1,32 +1,32 @@
 import { arrayCars } from "./class.js";
 
-function createLi (){
-    for (const car of arrayCars){
-        const selected = document.getElementById('modelInput');
-        selected.innerHTML += `<option>${car.name}</option>`;
-    }
+function createLi() {
+  for (const car of arrayCars) {
+    const selected = document.getElementById("modelInput");
+    selected.innerHTML += `<option>${car.name}</option>`;
+  }
 }
 
-function removeContent(){
-    let content = document.getElementById("cards");
-    content.innerHTML = '';
+function removeContent() {
+  let content = document.getElementById("cards");
+  content.innerHTML = "";
 }
 
-function loadCards(){
-    removeContent();
-    let destination = document.getElementById("cards");
-    for (const car of arrayCars) {
-        let card = document.createElement("section");
-        card.classList.add("text-gray-600");
-        card.classList.add("body-font");
+function loadCards() {
+  removeContent();
+  let destination = document.getElementById("cards");
+  for (const car of arrayCars) {
+    let card = document.createElement("section");
+    card.classList.add("text-gray-600");
+    card.classList.add("body-font");
 
-        card.innerHTML =    `
+    card.innerHTML = `
                             <div class="container max-w-7xl my-10 mx-auto px-4 sm:px-6 lg:px-8 card" id="${car.id}">
                                 
                                 <div class="p-5 flex items-center mx-auto bg-white border-b border-gray-200 rounded-lg sm:flex-row flex-col min-width-360">
                                     <!-- Imagen principal tarjeta -->
                                     <div class="w-80 h-auto pr-10 pr-0 sm:pr-10 sm:w-60 inline-flex items-center justify-center flex-shrink-0">
-                                        <img src="https://rently.blob.core.windows.net/hertz/CarModel/26756080-0e17-4e05-8e6a-fa67489347fe.jpg"/>
+                                        <img src="/public/img/${car.img}"/>
                                     </div>
                                     
                                     <!-- Caracteristicas del vehiculo -->
@@ -71,16 +71,16 @@ function loadCards(){
                             </div>
                             `;
     destination.appendChild(card);
-    }
+  }
 
-    //Agregamos la caracteristica ABS si corresponde
+  //Agregamos la caracteristica ABS si corresponde
 
-    let cards = document.getElementsByClassName("card");
-    for (let card of cards) {
-        for (let car of arrayCars) {
-            if(card.id == car.id && car.abs == true){
-                const characteristics = card.querySelector('.characteristics');
-                characteristics.innerHTML += `
+  let cards = document.getElementsByClassName("card");
+  for (let card of cards) {
+    for (let car of arrayCars) {
+      if (card.id == car.id && car.abs == true) {
+        const characteristics = card.querySelector(".characteristics");
+        characteristics.innerHTML += `
                                         <div class="inline-block mr-2">
                                             <div class="flex pr-2 h-full items-center space-x-2">
                                                 <img src="https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/undefined/external-abs-cars-components-those-icons-lineal-color-those-icons.png"/>
@@ -88,18 +88,9 @@ function loadCards(){
                                             </div>
                                         </div>
                                         `;
-            }
-        }
+      }
     }
+  }
 }
 
-function nextIndexOf(array) {
-    return array.length +1;
-}
-
-window.addEventListener('DOMContentLoaded', (event) => {
-    createLi();
-    loadCards();
-});
-
-export{createLi,removeContent,loadCards,nextIndexOf};
+export { createLi, removeContent, loadCards };
