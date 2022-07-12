@@ -1,4 +1,21 @@
-export function formValidate(event){
+import { nextIndexOf } from "./content.js"; 
+import { arrayCars,arrayReservations,Reservation } from "./class.js";
+
+let finalQty;
+let finalTotal;
+
+let voucherReturn;
+let totalDiscount;
+
+const msjBox = document.getElementById('msj');
+const msjMsj = document.getElementById('msjmsj');
+const msjFinal = document.getElementById('msjfinal');  
+
+const errorMsjBox = document.getElementById('errormsj');
+const errorMsjMsj = document.getElementById('errormsjmsj');
+const errorMsjFinal = document.getElementById('errormsjfinal'); 
+
+function formValidate(event){
     event.preventDefault();
 
     let modelInput = document.getElementById('modelInput').value;
@@ -54,7 +71,7 @@ export function formValidate(event){
     }
 }
 
-export function saveThis(name, quantityInput, daysInput, dayprice, total){
+function saveThis(name, quantityInput, daysInput, dayprice, total){
     let id = nextIndexOf(arrayReservations);
     arrayReservations.push(new Reservation (id, name, quantityInput, daysInput, dayprice, total));
     console.log('Se agregó a tu carrito '+ quantityInput +' '+ name +' por '+ daysInput +' días. Total parcial: $'+ total);
@@ -65,7 +82,7 @@ export function saveThis(name, quantityInput, daysInput, dayprice, total){
     clearMsj(true);
 }
 
-export function applyVoucher(voucherCode) {
+function applyVoucher(voucherCode) {
     switch (voucherCode) {
       case "bariloche":
         totalDiscount = finalTotal - Number(finalTotal) * 0.1;
@@ -78,7 +95,7 @@ export function applyVoucher(voucherCode) {
     }
 }
 
-export function addErrorMsj (msj, final = null){ 
+function addErrorMsj (msj, final = null){ 
     if (errorMsjBox.classList.contains('hidden')) {
         errorMsjBox.classList.remove("hidden");
     }
@@ -90,7 +107,7 @@ export function addErrorMsj (msj, final = null){
     }    
 }
 
-export function addMsj (msj, final = null) {
+function addMsj (msj, final = null) {
     if (msjBox.classList.contains('hidden')) {
         msjBox.classList.remove("hidden");
     }
@@ -102,7 +119,7 @@ export function addMsj (msj, final = null) {
     } 
 }
 
-export function clearMsj(error = null){
+function clearMsj(error = null){
     let destiny;
     if(error){
         destiny = errorMsjFinal;
@@ -113,3 +130,5 @@ export function clearMsj(error = null){
     destiny.innerHTML = '';
     destiny.parentElement.classList.add("hidden");
 }
+
+export { formValidate };

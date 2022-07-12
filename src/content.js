@@ -1,16 +1,18 @@
-export function createLi (arrayCars){
+import { arrayCars } from "./class.js";
+
+function createLi (){
     for (const car of arrayCars){
         const selected = document.getElementById('modelInput');
         selected.innerHTML += `<option>${car.name}</option>`;
     }
 }
 
-export function removeContent(){
+function removeContent(){
     let content = document.getElementById("cards");
     content.innerHTML = '';
 }
 
-export function loadCards(arrayCars){
+function loadCards(){
     removeContent();
     let destination = document.getElementById("cards");
     for (const car of arrayCars) {
@@ -68,7 +70,7 @@ export function loadCards(arrayCars){
                                 </div>
                             </div>
                             `;
-        destination.appendChild(card);
+    destination.appendChild(card);
     }
 
     //Agregamos la caracteristica ABS si corresponde
@@ -91,6 +93,13 @@ export function loadCards(arrayCars){
     }
 }
 
-export function nextIndexOf(array) {
+function nextIndexOf(array) {
     return array.length +1;
 }
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    createLi();
+    loadCards();
+});
+
+export{createLi,removeContent,loadCards,nextIndexOf};

@@ -1,4 +1,6 @@
-export class Car {
+import{nextIndexOf} from "./content.js";
+
+class Car {
     constructor (id, carModel, dayprice, passengers, fuel, transmission, abs){
         this.id = parseInt(id);
         this.name = carModel;
@@ -10,12 +12,7 @@ export class Car {
     }
 }
 
-export const arrayCars = [];
-arrayCars.push(new Car (nextIndexOf(arrayCars),"Etios", 2000,4,"Nafta","Manual",false));
-arrayCars.push(new Car (nextIndexOf(arrayCars),"Corolla", 3000,5,"Nafta","Automatico",true));
-arrayCars.push(new Car (nextIndexOf(arrayCars),"Hilux", 4000,5,"Diesel","Manual",true));
-
-export class Reservation {
+class Reservation {
     constructor (id, carname, quantity, rentedDays, dayPrice, total){
         this.id = parseInt(id);
         this.carname = carname;
@@ -25,4 +22,11 @@ export class Reservation {
         this.total = Number(total); 
     }
 }
+
 const arrayReservations = [];
+const arrayCars = [];
+arrayCars.push(new Car (nextIndexOf(arrayCars),"Etios", 2000,4,"Nafta","Manual",false));
+arrayCars.push(new Car (nextIndexOf(arrayCars),"Corolla", 3000,5,"Nafta","Automatico",true));
+arrayCars.push(new Car (nextIndexOf(arrayCars),"Hilux", 4000,5,"Diesel","Manual",true));
+
+export{Car,Reservation,arrayCars,arrayReservations};
